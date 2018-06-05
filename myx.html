@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- <link rel="stylesheet" href="css/element.css"> -->
+    <style>
+        body{
+            background: url(image/bg1.jpg)
+        }
+        .title_logo {
+            margin: 0 auto;
+            width: 340px;
+            opacity: 0.8;
+        }
+        #app {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wrap {
+            text-align: center
+        }
+
+        .el-row {
+            margin-bottom: 20px;
+        }
+
+        .el-col {
+            border-radius: 4px;
+        }
+
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+
+        .bg-purple {
+            background: #d3dce6;
+        }
+
+        .bg-purple-light {
+            background: #e5e9f2;
+        }
+
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+
+
+        .time {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .bottom {
+            margin-top: 13px;
+            line-height: 12px;
+        }
+
+        .button {
+            padding: 0;
+            float: right;
+            color: #ff8b8b
+        }
+
+        .image {
+            width: 100%;
+            display: block;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .beaty_img {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .el-col {
+            margin-bottom: 20px;
+        }
+
+        .high-light-dashed {
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            height: 158px;
+            width: 298px;
+            border: 1px dashed #2cd6b1;
+            text-align: center;
+            background-color: #fbfefe;
+            color: #2cd6b1
+        }
+
+        .pr {
+            position: relative;
+        }
+
+        .data-item-count {
+            margin-bottom: 90px;
+            cursor: pointer;
+            font-size: 64px;
+        }
+
+        .form_beatuy .el-form-item__label{
+            float: none;
+        }
+        
+        .el-form-item__content {
+            margin-left: 0
+        }
+        .form_btn {
+            width: 160px;
+            margin-left: 55px;
+            margin-top: 30px;
+            background-color: #e75152;
+            border-color: #f3c9dd;
+        }
+
+        .avatar-uploader .el-upload {
+            border: 1px dashed #d9d9d9;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar-uploader .el-upload:hover {
+            border-color: #409EFF;
+        }
+
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            width: 297px;
+            height: 140px;
+            line-height: 140px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 178px;
+            height: 178px;
+            display: block;
+        }
+
+        .form_beatuy .el-form-item {
+            margin-bottom: 10px;
+        }
+
+        .logo_wrap {
+            width: 370px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .logo {
+            width: 800px;
+            opacity: 0.5;
+        }
+
+        .add_beatuy .el-card{
+            height: 379px;
+        }
+       
+
+        .img-text {
+            text-align: right;
+        float: left;
+        font-size: 14px;
+        color: #606266;
+        line-height: 40px;
+        padding: 0 12px 0 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+        .beatuy-title {
+            background: #ff8b8b;
+            color: #fff;
+            padding: 5px;
+        }
+    </style>
+<style>#BAIDU_DSPUI_FLOWBAR,.adsbygoogle,.ad,div[class^="ad-widsget"],div[id^="div-gpt-ad-"],a[href*="cpro.baidu.com"],a[href*="@"][href*=".exe"],a[href*="/?/"][href*=".exe"],.adpushwin{display:none!important;max-width:0!important;max-height:0!important;overflow:hidden!important;}</style><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+    <div id="app">
+        <div class="title_logo">
+            <svg width="340" height="450" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <title>background</title>
+                    <rect fill="#ffffff" id="canvas_background" height="452" width="342" y="-1" x="-1"/>
+                    <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                    <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+                    </g>
+                </g>
+                <g>
+                    <title>Layer 1</title>
+                    <rect id="svg_6" height="1" width="1" y="223.5" x="430.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#FFEBFF"/>
+                    <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="69" id="svg_1" y="186.5" x="38.5" stroke-width="0" stroke="#000" fill="#000000">BEAUTY</text>
+                    <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="69" id="svg_2" y="248.5" x="40.5" stroke-width="0" stroke="#000" fill="#000000">LOVE</text>
+                    <path id="svg_4" d="m247.0371,304.74267c17.9119,-51.38659 88.09134,0 0,66.06847c-88.09134,-66.06847 -17.91191,-117.45506 0,-66.06847z" stroke-width="1.5" stroke="#ffaaaa" fill="#ffffff"/>
+                    <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="17" id="svg_9" y="285.5" x="45.337722" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">为梦想助力投票</text>
+                    <text xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="17" id="svg_14" y="107.5" x="116.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">International</text>
+                </g>
+            </svg>
+        </div>
+        <div class="logo_wrap">
+            <image class="logo" src="image/logo1.png"></image>
+        </div>
+        <el-row>
+            <el-col :span="6" v-for="(beauty, index) in orderByNum" :key="beauty.id" :offset="0" :id="beauty.id">
+                <el-card :body-style="{ padding: '0px' }">
+                    <div class="beaty_img">
+                        <img :src="beauty.img" class="image">
+                    </div>
+                    <div style="padding: 14px;">
+                        <span>{{beauty.name}}</span>
+                        <div class="bottom clearfix">
+                            <svg t="1527070664189" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1167" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"><defs><style type="text/css"></style></defs><path d="M739.584 70.592c-92.224 0-177.792 63.04-228.224 109.568C460.864 133.632 375.36 70.592 283.008 70.592 108.48 70.592 0 176.96 0 348.16 0 492.8 130.688 608.256 131.2 608.64l340.544 328.512c10.432 10.432 24.448 16.256 39.552 16.256s29.056-5.824 39.296-16l341.248-328.64c30.656-29.376 130.752-134.848 130.752-260.544C1022.656 176.96 914.176 70.592 739.584 70.592z" p-id="1168" fill="#d81e06"></path></svg>
+                            <time class="time">{{ beauty.loveNum }}</time>
+                            <el-button type="text" class="button" @click="love(beauty)">喜欢</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+            <el-col :span="6" :offset="0" class="add_beatuy">
+                <el-card :body-style="{ padding: '0px' }">
+                    <p class="beatuy-title" style="text-align:center">为自己梦想加力！</p>
+                    <el-form :rules="rules" ref="form" :model="form"  class="form_beatuy" style="padding: 14px;">
+                        <div  class="form_beatuy" style="padding: 14px;">
+                             <el-form-item label="请输入女神姓名:" prop="name">
+                                <el-input v-model="form.name" placeholder="请输入姓名" ></el-input>
+                            </el-form-item>
+                            <el-form-item label="请输入图片地址:"  prop="imageUrl">
+                                <el-input v-model="form.imageUrl" placeholder="请输入图片地址"></el-input>
+                            </el-form-item>
+                        </div>
+                       
+                        <el-button type="primary" @click="onSubmit(form)" class="form_btn">立即创建</el-button>
+                        
+                    </el-form>
+                </el-card>
+            </el-col>
+        </el-row>
+    </div>
+</body>
+<script src="js/nebPay.js"></script>
+<script src=js/nebulas.js></script>
+<script src="js/vue.js"></script>
+<script src="js/element.js"></script>
+
+<script>
+    var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
+    var nebPay = new NebPay();
+    var serialNumber;
+    var intervalQuery
+    var dappAddress = "n1oF74nZwAuN8sGfzpDaqSzt8FervuUsMZG";
+    var addNumId;
+    var nebulas = require("nebulas"),
+        Account = nebulas.Account,
+        neb = new nebulas.Neb();
+    // neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+
+    neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+
+
+    var girlList = [];
+    function Record(name, img){
+        this.name = name;
+        this.img = img;
+    }
+
+    function RecordId(id){
+        this.id = id;
+    }
+
+    Record.prototype.toString = function(){
+        return JSON.stringify(this);
+    }
+
+    RecordId.prototype.toString = function(){
+        return JSON.stringify(this);
+    }
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                girlList: [],
+                form: {
+                    name: '',
+                    // loveNum: '',
+                    imageUrl: ''
+                },
+                rules: {
+                    name: [
+                        { required: true, message: '请输入女神姓名', trigger: 'blur' },
+                        { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
+                    ],
+                    imageUrl: [
+                        { required: true, message: '请输入图片地址', trigger: 'blur' },
+                    ]
+                    }
+            }
+        },
+       
+        methods: {
+            getList() {
+                var to = dappAddress;
+                var value = "0";
+                var callFunction = "getRecords";
+                // var callArgs =  JSON.stringify([ new Record("name","img")]);
+                var callArgs = '[]';
+                nebPay.simulateCall(to, value, callFunction, callArgs, {
+                    listener: this.getGrilData 
+                });
+            },
+            
+            getGrilData:function(cb){
+                var result = JSON.parse(cb.result);
+                if (result.length==0) return;
+                this.girlList = result.data;
+            },
+          
+            love(beauty) { 
+                var to = dappAddress;
+                var value = "0";
+                var callFunction = "love"
+                var id = beauty.id;
+                addNumId = id;
+                beauty.loveNum++;
+
+                this.$notify.info({
+                    title: '友情提示',
+                    message: '提交投票需要一定的时间，投票结果稍后会通知！'
+                });
+
+                var callArgs =  JSON.stringify([ new RecordId(id).toString() ]);
+                
+                serialNumber = nebPay.call(to, value, callFunction, callArgs, {   
+                    listener: this.cbPush      
+                });
+
+                intervalQuery = setInterval(function () {
+                    funcIntervalQuery();
+                    
+                }, 5000);
+
+                
+            },
+
+            onSubmit(form) {
+                this.$refs.form.validate((valid) => {
+                    if (valid) {
+                        var to = dappAddress;
+                        var value = "0";
+                        var callFunction = "createRecord"
+                        var name = form.name;
+                        var imgSrc = form.imageUrl;
+                        
+                        // var callArgs = "[\"" + name + "\",\"" + loveNum + ",\"" + imgSrc + "\"]"
+                        var callArgs =  JSON.stringify([ new Record(name,imgSrc).toString() ]);
+                        //调用智能合约。
+                        serialNumber = nebPay.call(to, value, callFunction, callArgs, {   
+                            listener: cbPush        
+                        });
+
+                        this.$notify.info({
+                            title: '友情提示',
+                            message: '需要一定的时间，上榜结果稍后会通知！'
+                        });
+                        intervalQuery = setInterval(function () {
+                            addBeautyIntervalQuery();
+                        }, 5000);
+                        
+                        var self=this; 
+                        var t =setTimeout(function(){
+                            self.girlList.push(
+                                {
+                                    "name":name,
+                                    "img":imgSrc,
+                                    "id": self.girlList.length+1,
+                                    "loveNum":0,
+                                    "timestamp":Date.parse(new Date())
+                                }
+                            )
+                            form.name='';
+                            form.imageUrl=''
+                        },3000) 
+                        
+                    } else{
+                        return false
+                    }
+                })
+            },
+
+            cbPush: function(resp) {
+                var result = resp.result;    
+                console.log("return of rpc call: " + JSON.stringify(result))
+
+                try {
+                    result = JSON.parse(result)
+                    console.log(result)
+                } catch (err) {
+                    //result is the error message
+                }
+            },
+        },
+        mounted(){
+            this.getList()
+        },
+        computed: {
+            orderByNum: {
+
+                get: function(){
+                    return this.girlList.sort(function(i1,i2){
+                    return i2.loveNum-i1.loveNum;
+                });
+                },
+                set: function(value){
+                    this.girlList = value; //最后修改了msg    
+                }
+                
+                
+            }
+        } 
+    })
+
+    function cbPush(resp) {
+        var result = resp.result;    
+        console.log("return of rpc call: " + JSON.stringify(result))
+
+        try {
+            result = JSON.parse(result)
+            console.log(result)
+        } catch (err) {
+        }
+ 
+    }
+
+    function funcIntervalQuery() {
+        nebPay.queryPayInfo(serialNumber)   
+            .then(function (resp) {
+                console.log("tx result: " + resp)   
+                var respObject = JSON.parse(resp)
+                console.log(respObject)
+                if(respObject.code === 0){
+                    alert(`投票成功!`)
+                    clearInterval(intervalQuery)
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    } 
+
+    function addBeautyIntervalQuery() {
+        nebPay.queryPayInfo(serialNumber)   
+            .then(function (resp) {
+                console.log("tx result: " + resp)   
+                var respObject = JSON.parse(resp)
+                console.log(respObject)
+                if(respObject.code === 0){
+                    alert(`成功上榜!`)
+                    clearInterval(intervalQuery)
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    } 
+ 
+</script>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>青春不散场</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <script src="js/mdui.min.js"></script>
+</head>
+
+<body>
+
+<body class="mdui-theme-primary-red">
+<div class="main">
+    <div class="mdui-container">
+        <div class="noExtension" id="noExtension">
+            提示: 请安装
+            <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 再使用
+        </div>
+
+        <div class="secret-wrap" id="app" v-clock style="margin-top: 580px;display: none;">
+            <div class="title" style="font-size: 30px;padding-bottom: 40px;">
+                青春不散场
+            </div>
+            <div class="item" v-for="(s,index) in list">
+                <div class="img">
+                    <img src="img/girl.jpg" v-if="getSex(s.value)==0"/>
+                    <img src="img/boy.jpg" v-if="getSex(s.value)==1"/>
+                </div>
+                <div class="user">
+                    <div class="info">
+                        <div>
+                            {{getSchool(s.value)+'的童鞋'}} <span class="time" v-html="formatDateTime(s.value)"></span>
+                        </div>
+                        <!--<div class="reply" @click="reply">赞</div>-->
+                    </div>
+                    <div class="content" v-html="getContent(s.value)">
+                    </div>
+                </div>
+            </div>
+            <div class="inp-wrap">
+                <div class="inp1">
+                    <input type="text" id="schoolName" class="schoolName" placeholder="学校名称">
+                    <select id="sex">
+                        <option value="1">男</option>
+                        <option value="0">女</option>
+                    </select>
+                </div>
+                <br>
+                <textarea id="word" rows="5" cols="500" placeholder="你的寄语"></textarea>
+                <br/>
+                <button id="push" onClick="push()" class="mdui-btn mdui-btn-raised mdui-ripple">提交</button>
+                <div class="link">
+                    基于新一代公链<a href="https://nebulas.io/">星云链</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/nebPay.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var NebPay = require("nebpay"); 
+    var nebPay = new NebPay();
+
+    //检查扩展是否已安装
+    //如果安装了扩展，var“webExtensionWallet”将被注入到web页面中
+    if (typeof(webExtensionWallet) === "undefined") {
+        //alert ("扩展钱包未安装，请先安装.")
+        $("#noExtension").show();
+    }
+
+    var dappAddress = "n1poSyAhPFggUXyH38ZHHbi483bET8DoAyT";
+    var initKey = '';
+    setInterval(function () {
+        getWish(0);
+    }, 10000);
+    getWish(0);
+
+    // 初始化
+    function getWish(page) {
+        initKey = 'wish:' + new Date().getTime() + RndNum(3);
+        var to = dappAddress;
+        var value = "0";
+        var callFunction = "forEach";
+        var callArgs = "[1000," + page * 10 + "]";
+        nebPay.simulateCall(to, value, callFunction, callArgs, {
+            listener: cbSearch
+        });
+    }
+
+    //return of search,
+    function cbSearch(resp) {
+        $('#app').show();
+        if (!resp.result) return;
+        var result = eval(JSON.parse(resp.result));
+        if (result !== 'null') {
+            Vue.set(app, 'list', result)
+        }
+    }
+
+    // 提交
+    function push() {
+        if($('#schoolName').val()==''){
+            layer.alert('学校名称不能为空！');
+            return;
+        }else if ($("#word").val() == '') {
+            layer.alert('寄语不能为空！');
+            return;
+        }  else if ($("#word").val() > 200) {
+            layer.alert('寄语太长了！');
+            return;
+        }
+        var to = dappAddress;
+        var value = "0";
+        var callFunction = "set"
+        var callArgs = [];
+        var sex = $('#sex').val();
+        callArgs.push(initKey);
+        callArgs.push($("#word").val() + "|-|" + new Date().getTime() + '|-|' + $('#schoolName').val() + '|-|' + sex);
+        nebPay.call(to, value, callFunction, JSON.stringify(callArgs), {
+            listener: cbPush
+        });
+    }
+
+    function cbPush(resp) {
+        console.log("response of push: " + resp);
+        $("#word").val('')
+    }
+
+    //产生随机数函数
+    function RndNum(n) {
+        var rnd = "";
+        for (var i = 0; i < n; i++)
+            rnd += Math.floor(Math.random() * 10);
+        return rnd;
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: []
+        },
+        methods: {
+            formatDateTime: function (theDate) {
+                if (!theDate || theDate == null || theDate.split('|-|').length != 4) {
+                    return ' ';
+                }
+                theDate = theDate.split('|-|')[1];
+                if (theDate == '') {
+                    return '';
+                }
+                var date = new Date();
+                date.setTime(theDate);
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? ('0' + m) : m;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                h = h < 10 ? ('0' + h) : h;
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                minute = minute < 10 ? ('0' + minute) : minute;
+                second = second < 10 ? ('0' + second) : second;
+                return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+            },
+            getContent: function (text) {
+                if (text) {
+                    return text.split('|-|')[0];
+                } else {
+                    return ' ';
+                }
+
+            },
+            getSchool: function (text) {
+                if (text) {
+                    return text.split('|-|')[2];
+                } else {
+                    return ' ';
+                }
+            },
+            getSex: function (text) {
+                if (text) {
+                    return text.split('|-|')[3];
+                } else {
+                    return ' ';
+                }
+            },
+            reply: function () {
+                layer.msg('您暂时赞不了');
+            }
+        }
+    })
+
+</script>
+</body>
+
+</html>

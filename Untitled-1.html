@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body class="no-trans">
+<!-- scrollToTop -->
+<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+<!-- header start -->
+<header class="header fixed clearfix navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+
+                <!-- header-left start -->
+                <div class="header-left">
+
+                    <!-- logo -->
+                    <div class="logo smooth-scroll">
+                        <a href="#banner"></a>
+                    </div>
+
+                    <!-- name-and-slogan -->
+                    <div class="logo-section smooth-scroll">
+                        <div class="brand"><a href="#banner">love trouble</a></div>
+                    </div>
+
+                </div>
+                <!-- header-left end -->
+
+            </div>
+            <div class="col-md-8">
+
+                <!-- header-right start -->
+                <div class="header-right">
+
+                    <!-- main-navigation start -->
+                    <div class="main-navigation animated">
+
+                        <!-- navbar start -->
+                        <nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="active"><a href="#banner">首页</a></li>
+                                        <li><a href="#main">解疑区</a></li>
+                                        <li><a href="#footer">关于我们</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                        <!-- navbar end -->
+
+                    </div>
+                    <!-- main-navigation end -->
+
+                </div>
+                <!-- header-right end -->
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end -->
+
+<!-- banner start -->
+<div id="banner" class="banner">
+    <div class="banner-image"></div>
+    <div class="banner-caption">
+        <div class="container">
+            <div class="row">
+                <div class="caption-data" style="margin-top: 0px; opacity: 1;" data-animation-effect="fadeIn">
+                    <h3 class="padding-top30">男生/女生到底是怎么想的？</h3>
+                    <h3 class="padding-top30" id="noExtension">提示: 请安装
+                        <a target="_blank"
+                           href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 再使用</h3>
+                    <div class="padding-top60 contact-form">
+                        <a href="#main1">
+                            <button class="btn cta-button">查看答案</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- banner end -->
+<section class="hero-caption secPadding" id="main1">
+    <div class="container">
+        <div class="row " style="margin-top: 0px;">
+            <div class="col-sm-12">
+                <h2>分享你的恋爱经验，帮助别人解答恋爱中的问题。</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section start -->
+<div id="app">
+    <section class="section secPadding">
+        <div class="container">
+            <div class="item-wrap">
+                <div class="item" v-for="q in list">
+                    <div class="ques">
+                        <img src="images/head-default.jpg" alt="">
+                        <div class="content">
+                            <span v-html="q.title"></span>
+                            <span class="look" @click="look(q.key)">查看</span>
+                        </div>
+                    </div>
+                    <div class="answer" :class="'answer'+q.key">
+                        <div class="item" v-for="a in q.answer">
+                            <div class="c">
+                                {{a.content}}
+                            </div>
+                            <div class="date" v-html="a.date">
+                            </div>
+                        </div>
+                        <div style="margin: 15px 0;">
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="footer-content">
+                                        <div class="form-group has-feedback">
+                                        <textarea name="Message" rows="3" cols="20" :id="'answerInp'+q.key"
+                                                  class="form-control input-message wow fadeInUp" placeholder="请输入您的回答"
+                                                  required></textarea>
+                                        </div>
+                                        <input type="submit" value="回答" class="btn btn-sm" @click="push(q.key)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--翻页按钮-->
+            <div class="filters" style="margin-top: 85px;">
+                <h3 style="font-weight: bold;">我要提问</h3>
+            </div>
+            <!--回答提问-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="footer-content" style="">
+                        <div class="form-group has-feedback">
+                            <input type="text" id="questionInp" class="form-control wow fadeInUp"
+                                   placeholder="请输入你的问题"/>
+                        </div>
+                        <input type="submit" value="提交" class="btn btn-sm" onclick="push()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer start -->
+    <footer id="footer">
+        <!-- .footer end -->
+
+        <!-- .subfooter start -->
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="text-align: center">
+                        <p>Copyright © 2018.基于
+                            <a href="https://nebulas.io/" target="_blank">NAS</a>的社交网站
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .subfooter end -->
+
+    </footer>
+    <!-- footer end -->
+</div>
+<!-- JavaScript -->
+<script type="text/javascript" src="plugins/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/modernizr.js"></script>
+<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+<!-- Custom Scripts -->
+<script type="text/javascript" src="js/custom.js"></script>
+<script src="js/nebPay.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var NebPay = require("nebpay"); //https://github.com/nebulasio/nebPay
+    var nebPay = new NebPay();
+
+    $(function () {
+        //检查扩展是否已安装
+        //如果安装了扩展，var“webExtensionWallet”将被注入到web页面中1
+        if (typeof(webExtensionWallet) === "undefined") {
+            //alert ("扩展钱包未安装，请先安装.")
+            $("#noExtension").show();
+        }
+
+        $('#add').on('click', function () {
+            $('#inp').slideToggle();
+        });
+    })
+
+    var dappAddress = "n1uGi63m9K9cKxBxMNqvJeN2v5yZ4M7cSyG";
+    var bLen = 0;
+    setInterval(function () {
+        getQuestion(0);
+    }, 15000);
+    getQuestion(0);
+
+    // 初始化
+    function getQuestion(page) {
+        var to = dappAddress;
+        var value = "0";
+        var callFunction = "forEach";
+        var callArgs = "[100]";
+        nebPay.simulateCall(to, value, callFunction, callArgs, {
+            listener: cbSearch
+        });
+    }
+
+    //return of search,
+    function cbSearch(resp) {
+        if (!resp.result) return;
+        var result = eval(JSON.parse(resp.result));
+
+        var qList = [];
+        for (var i = 0; i < result.length; i++) {
+            var qObj = {};
+            var v = result[i].value.split('|-');
+            var d = result[i].date.split('|-');
+            qObj.key = result[i].key;
+            qObj.title = v[0];
+            qObj.date = d[0];
+            v.shift();
+            d.shift();
+            qObj.answer = [];
+            for (var m = 0; m < v.length; m++) {
+                var temp = {};
+                temp.content = v[m];
+                temp.date = d[m];
+                qObj.answer.push(temp);
+            }
+            qList.push(qObj);
+        }
+        if (result !== 'null') {
+            Vue.set(app, 'list', qList)
+        }
+    }
+
+
+    function getLen() {
+        var to = dappAddress;
+        var value = "0";
+        var callFunction = "len";
+        nebPay.simulateCall(to, value, callFunction, '', {
+            listener: cbLen
+        });
+    }
+
+    getLen();
+
+    // 提交问题
+    function push(key) {
+        var to = dappAddress;
+        var value = "0";
+        var callFunction = "save"
+        var callArgs = [];
+        callArgs.push((key || (bLen + 1)).toString());
+        if (key) {
+            if ($("#answerInp" + key).val() == '') {
+                layer.alert('回答不能为空哟！');
+                return;
+            } else if ($("#answerInp" + key).val() > 200) {
+                layer.alert('回答太长了！');
+                return;
+            }
+            callArgs.push($("#answerInp" + key).val());
+        } else {
+            if ($("#questionInp").val() == '') {
+                layer.alert('问题不能为空哟！');
+                return;
+            } else if ($("#questionInp").val() > 200) {
+                layer.alert('问题太长了！');
+                return;
+            }
+            callArgs.push($("#questionInp").val());
+        }
+        callArgs.push(new Date().format("yyyy-MM-dd hh:mm:ss"))
+        nebPay.call(to, value, callFunction, JSON.stringify(callArgs), { //使用nebpay的call接口去调用合约,
+            listener: cbPush
+        });
+    }
+
+    function cbPush(resp) {
+        console.log("response of push: " + resp);
+        $("#questionInp").val('')
+    }
+
+
+    function cbLen(resp) {
+        bLen = parseInt(resp.result || 0);
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: []
+        },
+        methods: {
+            formatDateTime: function (theDate) {
+                if (!theDate || theDate == null || theDate.split(':').length != 2) {
+                    return ' ';
+                }
+                theDate = theDate.split(':')[1];
+                if (theDate == '') {
+                    return '';
+                }
+                var date = new Date();
+                date.setTime(theDate);
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? ('0' + m) : m;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                h = h < 10 ? ('0' + h) : h;
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                minute = minute < 10 ? ('0' + minute) : minute;
+                second = second < 10 ? ('0' + second) : second;
+                return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+            },
+            getContent: function (text) {
+                if (text) {
+                    return text.split(':')[0];
+                } else {
+                    return ' ';
+                }
+
+            },
+            push: function (key) {
+                push(key);
+            },
+            look: function (key) {
+                $('.answer').not('.answer' + key).slideUp();
+                $('.answer' + key).slideToggle();
+            }
+        }
+    })
+
+    Date.prototype.format = function (format) {
+        var args = {
+            "M+": this.getMonth() + 1,
+            "d+": this.getDate(),
+            "h+": this.getHours(),
+            "m+": this.getMinutes(),
+            "s+": this.getSeconds(),
+            "q+": Math.floor((this.getMonth() + 3) / 3),  //quarter
+            "S": this.getMilliseconds()
+        };
+        if (/(y+)/.test(format))
+            format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var i in args) {
+            var n = args[i];
+            if (new RegExp("(" + i + ")").test(format))
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length));
+        }
+        return format;
+    };
+</script>
+</body>
+</html>
